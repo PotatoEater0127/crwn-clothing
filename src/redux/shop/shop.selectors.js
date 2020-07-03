@@ -10,7 +10,11 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
   [selectCollections],
-  (collections) => Object.keys(collections).map((key) => collections[key])
+  (collections) => {
+    return Object.keys(collections)
+      .sort((a, b) => a.localeCompare(b))
+      .map((key) => collections[key]);
+  }
 );
 
 export const selectCollection = memoize((collectionUrlParam) =>

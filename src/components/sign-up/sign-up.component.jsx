@@ -34,15 +34,7 @@ export default class SignUp extends Component {
         email,
         password
       );
-
       await createUserProfileDocument(user, { displayName });
-
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
     } catch (err) {
       console.log(err.message);
     }
